@@ -6,7 +6,7 @@ package com.theironyard.novauc;
 public class Grocery extends InventoryItem {
 
     public Grocery(String name, int quantity){
-        super(name, quantity);
+        super();
 
         this.category = "Grocery";
 
