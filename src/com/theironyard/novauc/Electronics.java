@@ -8,7 +8,11 @@ import java.util.Scanner;
  */
 public class Electronics extends InventoryItem {
 
-public Electronics(){
+public Electronics(String item, int quantity, String category){
+    this.name = item;
+    this.quantity = quantity;
+    this.category = "Electronics";
+
 
 }
 //    public Electronics(String name, int quantity) {

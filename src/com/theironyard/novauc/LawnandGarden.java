@@ -5,9 +5,9 @@ package com.theironyard.novauc;
  */
 public class LawnandGarden extends InventoryItem {
 
-    public LawnandGarden(String name, int quantity) {
-        super();
-
+    public LawnandGarden(String item, int quantity, String category){
+        this.name = item;
+        this.quantity = quantity;
         this.category = "LawnandGarden";
     }
 }

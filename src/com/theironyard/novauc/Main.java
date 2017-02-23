@@ -5,19 +5,11 @@ import java.util.Scanner;
 public class Main {
     public static ArrayList<InventoryItem> items = new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
-        createitem();
 
-
-    }
-
-    public static InventoryItem createitem() {
         while (true) {
-
-
-            Scanner scanner = new Scanner(System.in);
 
             System.out.println("1. Create item");
             System.out.println("2. List items");
@@ -33,7 +25,8 @@ public class Main {
                 System.out.println("Enter category: ");
                 String category = scanner.nextLine();
 
-                items.add(new InventoryItem(item, quantity, category));
+//                items.add(new InventoryItem(item, quantity, category));
+                items.add(createItem(item, quantity, category));
 
 
                 // prompt for information needed to create new item
@@ -52,15 +45,36 @@ public class Main {
                     System.out.printf("%s %s %s\n", materials.name, materials.quantity, materials.category);
 
                 }
-            } else {
+            } else
+                {
                 System.out.println("Invalid Option");
 
 
                 // this method should create new items of the five different classes based on what the user inputs for category
 
             }
+
+
+        }
+    }
+
+    public static InventoryItem createItem(String item, int quantity, String category) throws Exception {
+
+        if (category.equalsIgnoreCase("Electronics")) {
+            return new Electronics(item, quantity, category);
+        } else if (category.equalsIgnoreCase("Clothing")) {
+            return new Clothing(item, quantity, category);
+        } else if (category.equalsIgnoreCase("Sports")) {
+            return new Sports(item, quantity, category);
+        } else if (category.equalsIgnoreCase("LawnandGarden")) {
+            return new LawnandGarden(item, quantity, category);
+        } else if (category.equalsIgnoreCase("Grocery")) {
+            return new Grocery(item, quantity, category);
+        } else {
+            throw new Exception("Invalid category name");
         }
     }
 }
+
 
 
